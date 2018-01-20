@@ -42,6 +42,10 @@
   		NOTE: When referring to equation~\eqref{E:SI} make sure to use ~\verb|equation~\eqref{E:SI}|~ in your source file so that you obtain a hyperlinked reference that is automatically numbered correctly.
   
     \begin{proof}
+<<<<<<< HEAD
+      {\color{magenta}\dots beautifully clear and concise text to be inserted here\dots}
+      When referring to equation make sure to use ~\verb|equation~\eqref{E:SI}|~ in your source file so that you obtain a hyperlinked reference that is automatically numbered correctly.
+=======
 	      An appropriate Lyapunov function to prove that the endemic equilibrium is a globally asymptotically stable equilibrium is given by 
 	      
 	      \begin{equation}
@@ -54,6 +58,7 @@
 	      
 	      which satisfies both of the conditions in Theorem 1 (Lyapunov's Direct Method) stated in the section "Notes on Lyapunov functions".
 
+>>>>>>> 56517c92540715ef6956609351ec842bdf505523
     \end{proof}
   }
   
@@ -83,7 +88,7 @@
   \end{enumerate}
 \end{enumerate}
 
-\section{Analysis of the basic SIR  model}
+\section{Analysis of the basic SIR model}
 
 \basicSIRanalIntro
 \begin{enumerate}[(a)]
@@ -174,9 +179,35 @@
 {\color{blue}
 \begin{proof}[Answers]
 
+<<<<<<< HEAD
 \end{proof}
 }
 
+=======
+There are several things to be considered at the beginning of this proof. First examine~\eqref{E:SIR} where it can be plainly seen that if $I=0$ then the system is at an equilibrium. Thus we will only consider cases where $I(0)\neq 0$.
+\begin{center}
+\begin{figure}[h]
+\includegraphics[width=5cm]{images/4MB3_A1_2c.png}
+\end{figure}
+\end{center}
+Consider the relative area, as shown here. First we will examine the green area, written as ${\mathcal O}=\{(-\infty,\frac{1}{{\mathcal R}_o}) \times \mathbb{R}\}\cap \Delta$, where $\Delta=\{(S,I):S\ge0,\, I\ge0,\, S+I\le1\}$ as shown in the image, and ${\mathcal O}$ is an open subset relative to the area of interest. We will also use the closed set ${\mathcal C}=\{[0,\frac{1}{{\mathcal R}_o}-\delta]\times{0}\}, \delta > 0$. As stated previously, any state with $I=0$ will remain in that set, making $\mathcal C$ an invariant set. Knowing this we can now invoke \textit{Lyapunov's Direct Method of Closed Invariant Sets} using the Lyapunov function, $\mathcal{L} = I$. It is easily shown that this is a strict Lyapunov function on $\mathcal{O} \setminus \mathcal{C}$ and $\mathcal{C}$ is asymptotically stable.
+\begin{equation}
+{\displaystyle {\begin{aligned}
+\mathcal{L}&=I \\
+\mathcal{L}(X)&=0 \qquad \forall \quad X \in \mathcal{C} \\
+\mathcal{L}(X) &> 0 \qquad \forall \quad X \in \mathcal{O} \setminus \mathcal{C} \\
+\frac{d\mathcal{L}(X)}{dt} &= \frac{dI}{dt}=I(\mathcal{R}_0 \cdot S-1) \\
+\frac{d\mathcal{L}(X)}{dt} &= 0 \qquad \forall \quad X \in \mathcal{C} \\
+\frac{d\mathcal{L}(X)}{dt} &< 0 \qquad \forall \quad X \in \mathcal{O} \setminus \mathcal{C}
+\end{aligned}}}
+\end{equation}
+We now conclude that the set of $I=0$ is asymptotically stable for any initial conditions in $\mathcal{O}$.\break
+Next we need to show that any trajectories with initial conditions in $\Delta \setminus \mathcal{O}$, in green in the diagram, will eventually land in $\mathcal{O}$ at which point we use the asymptotic stability of $\mathcal{C}$ as we showed above. 
+For any point, $P \in \Delta \setminus \mathcal{O}, P=\{(S,I)|S \geq \frac{1}{\mathcal{R}_0}, I > 0, S+I \leq 1\}$. We can see from ~\eqref{E:SIR} that $\frac{dS}{dt} < 0$ for all $P$. This means that $S$ will decrease and continue to decrease until 
+
+\end{proof}
+}
+>>>>>>> 60646b39c354c89a15959de12417bb32a8af1907
 
 \item \basicSIRanalQd
 
