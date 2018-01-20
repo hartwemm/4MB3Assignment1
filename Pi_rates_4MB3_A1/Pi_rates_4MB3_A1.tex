@@ -38,14 +38,7 @@
 \item \SIanalQa
   
   {\color{blue}
-  
-  		NOTE: When referring to equation~\eqref{E:SI} make sure to use ~\verb|equation~\eqref{E:SI}|~ in your source file so that you obtain a hyperlinked reference that is automatically numbered correctly.
-  
     \begin{proof}
-<<<<<<< HEAD
-      {\color{magenta}\dots beautifully clear and concise text to be inserted here\dots}
-      When referring to equation make sure to use ~\verb|equation~\eqref{E:SI}|~ in your source file so that you obtain a hyperlinked reference that is automatically numbered correctly.
-=======
 	      An appropriate Lyapunov function to prove that the endemic equilibrium is a globally asymptotically stable equilibrium is given by 
 	      
 	      \begin{equation}
@@ -57,8 +50,6 @@
 	      \end{equation}
 	      
 	      which satisfies both of the conditions in Theorem 1 (Lyapunov's Direct Method) stated in the section "Notes on Lyapunov functions".
-
->>>>>>> 56517c92540715ef6956609351ec842bdf505523
     \end{proof}
   }
   
@@ -198,7 +189,9 @@ Consider the relative area, as shown here. First we will examine the green area,
 \end{equation}
 We now conclude that the set of $I=0$ is asymptotically stable for any initial conditions in $\mathcal{O}$.\break
 Next we need to show that any trajectories with initial conditions in $\Delta \setminus \mathcal{O}$, in green in the diagram, will eventually land in $\mathcal{O}$ at which point we use the asymptotic stability of $\mathcal{C}$ as we showed above. 
-For any point, $P \in \Delta \setminus \mathcal{O}, P=\{(S,I)|S \geq \frac{1}{\mathcal{R}_0}, I > 0, S+I \leq 1\}$. We can see from ~\eqref{E:SIR} that $\frac{dS}{dt} < 0$ for all $P$. This means that $S$ will decrease and continue to decrease until 
+For any point, $P \in \Delta \setminus \mathcal{O}, P=\{(S,I)|S \geq \frac{1}{\mathcal{R}_0}, I > 0, S+I \leq 1\}$. We can see from ~\eqref{E:SIR} that $\frac{dS}{dt} < 0$ for all $P$. This means that $S$ will decrease and continue to decrease until $P \in \mathcal{O}.$
+\break
+This makes biological sense as any endemic will end eventually, at which point there will be no infectious individuals, so $I=0$. 
 
 \end{proof}
 }
