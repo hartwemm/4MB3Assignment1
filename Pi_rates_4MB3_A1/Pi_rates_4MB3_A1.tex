@@ -38,9 +38,22 @@
 \item \SIanalQa
   
   {\color{blue}
+  
+  		NOTE: When referring to equation~\eqref{E:SI} make sure to use ~\verb|equation~\eqref{E:SI}|~ in your source file so that you obtain a hyperlinked reference that is automatically numbered correctly.
+  
     \begin{proof}
-      {\color{magenta}\dots beautifully clear and concise text to be inserted here\dots}
-      When referring to equation~\eqref{E:SI} make sure to use ~\verb|equation~\eqref{E:SI}|~ in your source file so that you obtain a hyperlinked reference that is automatically numbered correctly.
+	      An appropriate Lyapunov function to prove that the endemic equilibrium is a globally asymptotically stable equilibrium is given by 
+	      
+	      \begin{equation}
+	      	L=S^2=(N-I)^2 > 0 \quad \forall X\in\mathcal{O}\setminus{X_*}
+	      \end{equation}
+	      
+	       \begin{equation}
+	      	\dot{L}=2S\dot{S}=2(N-I)(-\dot{I})=-2\beta I^2 (N-I)^2 \leq 0 \quad \forall X\in\mathcal{O}\setminus{X_*}
+	      \end{equation}
+	      
+	      which satisfies both of the conditions in Theorem 1 (Lyapunov's Direct Method) stated in the section "Notes on Lyapunov functions".
+
     \end{proof}
   }
   
@@ -88,7 +101,29 @@
 
 {\color{blue}
 \begin{proof}[Solution]
-{\color{magenta}\dots beautifully clear and concise text to be inserted here\dots}
+
+	\begin{equation}
+	\frac{\frac{dS}{dt}}{\frac{dR}{dt}} = \frac{dS}{dR} = \frac{-\mathcal{R}_0SI}{I} = -\mathcal{R}_0S \implies S=S_0e^{-\mathcal{R}_0R}
+	\end{equation}
+	
+	Recall $S+I+R=1$ so we have that
+	
+	\begin{equation}
+	S_0e^{-\mathcal{R}_0R}+I+R = 1 \implies R=1-I-S_0e^{-\mathcal{R}_0R}
+	\end{equation}
+	
+	From \verb|equation \eqref{E:S}|...
+	
+	\begin{equation}
+	\frac{dR}{dt}=1-R-S_0e^{-\mathcal{R}_0R}
+	\end{equation}
+	
+	We can solve this as a separable equation to  get the expression for t(R)
+	
+	\begin{equation}
+	t=\int \frac{1}{1-R-S_0e^{-\mathcal{R}_0R}}dR
+	\end{equation}
+	
 \end{proof}
 }
 
@@ -96,12 +131,43 @@
 
 {\color{blue}
 \begin{proof}[Solution]
-{\color{magenta}\dots beautifully clear and concise text to be inserted here\dots}
+	The peak prevalence corresponds to where the determinant of I is equal to zero:
+	
+	\begin{equation}
+	\frac{dI}{dt}=\mathcal{R}_0 SI-I=0 \implies I=0 \quad or \quad  \mathcal{R}_0=\frac{1}{S}
+	\end{equation}
+	
+	Since $I=0$ is trivial, take $\mathcal{R}_0=1/S$ and plug this into the expression for t(R) from 2(b)(i) giving 
+	
+	\begin{equation}
+	t=\int \frac{1}{1-R-S_0e^{-R/S}}dR
+	\end{equation}
+
+	This expression may be useful because the expression relates time to peak prevalence. This means that if one can solve this expression, they will know at what amount of time units peak prevalence will occur.
+
 \end{proof}
 }
 
   \item \basicSIRanalQbiii
+  
+{\color{blue}
+\begin{proof}[Solution]
+
+	The P \& I 1918 time series shows deaths as a function of time, whereas the model achieved in this solution is time as a function of those recovered; recovered including both those that died and those that are over the illness and now immune. If the t(R) model from this question was solved explicitly (assuming we could find a solution) and an inverse $t^{-1}(R)$ was solved for explicitly, (one again assuming this exists and can be solved) we would have a model similar to the P \& I 1918 model which models recovery as a function of time. One further assumption needed is that all of those belonging to the recovered category in the $t^{-1}(R)$ are dead, since alive and immune is not included in the time series data for P \& I 1918. I would not advise my assistant to help prepare a report for the public health agency with this model since the assumptions are too extreme and unreasonable. A better model that has an explicit equation and takes into account those recovered that are alive will do a much better job modelling the P \& I 1918 data than the one achieved in this question.
+
+\end{proof}
+}
+  
+  
   \item \basicSIRanalQbiv
+{\color{blue}
+\begin{proof}[Solution]
+	
+	Yes it is possible to find an exact analytical expression for t(S). The same steps from part (i) can be taken, except R is solved for as a function of S (separable equation) when combining $dS/dt$ and $dR/dt$, and the $dS/dt$ equation is solved for I to achieve a relation between $dS/dt$ and I to substitute into the$ S+I+R=1$ equation. Carrying on as in part (i) R and I can now be replaced in $S+I+R=1$ and the equation can be solved as a separable equation, giving t as a function of S or t(S).
+
+\end{proof}
+}  
+  
   \end{enumerate}
 \item \basicSIRanalQc
 
