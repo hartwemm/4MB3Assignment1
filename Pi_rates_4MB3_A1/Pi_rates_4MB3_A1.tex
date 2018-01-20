@@ -38,9 +38,27 @@
 \item \SIanalQa
   
   {\color{blue}
+  
+  		NOTE: When referring to equation~\eqref{E:SI} make sure to use ~\verb|equation~\eqref{E:SI}|~ in your source file so that you obtain a hyperlinked reference that is automatically numbered correctly.
+  
     \begin{proof}
+<<<<<<< HEAD
       {\color{magenta}\dots beautifully clear and concise text to be inserted here\dots}
-      When referring to equation~\eqref{E:SI} make sure to use ~\verb|equation~\eqref{E:SI}|~ in your source file so that you obtain a hyperlinked reference that is automatically numbered correctly.
+      When referring to equation make sure to use ~\verb|equation~\eqref{E:SI}|~ in your source file so that you obtain a hyperlinked reference that is automatically numbered correctly.
+=======
+	      An appropriate Lyapunov function to prove that the endemic equilibrium is a globally asymptotically stable equilibrium is given by 
+	      
+	      \begin{equation}
+	      	L=S^2=(N-I)^2 > 0 \quad \forall X\in\mathcal{O}\setminus{X_*}
+	      \end{equation}
+	      
+	       \begin{equation}
+	      	\dot{L}=2S\dot{S}=2(N-I)(-\dot{I})=-2\beta I^2 (N-I)^2 \leq 0 \quad \forall X\in\mathcal{O}\setminus{X_*}
+	      \end{equation}
+	      
+	      which satisfies both of the conditions in Theorem 1 (Lyapunov's Direct Method) stated in the section "Notes on Lyapunov functions".
+
+>>>>>>> 56517c92540715ef6956609351ec842bdf505523
     \end{proof}
   }
   
@@ -70,7 +88,7 @@
   \end{enumerate}
 \end{enumerate}
 
-\section{Analysis of the basic SIR  model}
+\section{Analysis of the basic SIR model}
 
 \basicSIRanalIntro
 \begin{enumerate}[(a)]
@@ -88,7 +106,29 @@
 
 {\color{blue}
 \begin{proof}[Solution]
-{\color{magenta}\dots beautifully clear and concise text to be inserted here\dots}
+
+	\begin{equation}
+	\frac{\frac{dS}{dt}}{\frac{dR}{dt}} = \frac{dS}{dR} = \frac{-\mathcal{R}_0SI}{I} = -\mathcal{R}_0S \implies S=S_0e^{-\mathcal{R}_0R}
+	\end{equation}
+	
+	Recall $S+I+R=1$ so we have that
+	
+	\begin{equation}
+	S_0e^{-\mathcal{R}_0R}+I+R = 1 \implies R=1-I-S_0e^{-\mathcal{R}_0R}
+	\end{equation}
+	
+	From \verb|equation \eqref{E:S}|...
+	
+	\begin{equation}
+	\frac{dR}{dt}=1-R-S_0e^{-\mathcal{R}_0R}
+	\end{equation}
+	
+	We can solve this as a separable equation to  get the expression for t(R)
+	
+	\begin{equation}
+	t=\int \frac{1}{1-R-S_0e^{-\mathcal{R}_0R}}dR
+	\end{equation}
+	
 \end{proof}
 }
 
@@ -96,26 +136,72 @@
 
 {\color{blue}
 \begin{proof}[Solution]
-{\color{magenta}\dots beautifully clear and concise text to be inserted here\dots}
+	The peak prevalence corresponds to where the determinant of I is equal to zero:
+	
+	\begin{equation}
+	\frac{dI}{dt}=\mathcal{R}_0 SI-I=0 \implies I=0 \quad or \quad  \mathcal{R}_0=\frac{1}{S}
+	\end{equation}
+	
+	Since $I=0$ is trivial, take $\mathcal{R}_0=1/S$ and plug this into the expression for t(R) from 2(b)(i) giving 
+	
+	\begin{equation}
+	t=\int \frac{1}{1-R-S_0e^{-R/S}}dR
+	\end{equation}
+
+	This expression may be useful because the expression relates time to peak prevalence. This means that if one can solve this expression, they will know at what amount of time units peak prevalence will occur.
+
 \end{proof}
 }
 
   \item \basicSIRanalQbiii
+  
+{\color{blue}
+\begin{proof}[Solution]
+
+	The P \& I 1918 time series shows deaths as a function of time, whereas the model achieved in this solution is time as a function of those recovered; recovered including both those that died and those that are over the illness and now immune. If the t(R) model from this question was solved explicitly (assuming we could find a solution) and an inverse $t^{-1}(R)$ was solved for explicitly, (one again assuming this exists and can be solved) we would have a model similar to the P \& I 1918 model which models recovery as a function of time. One further assumption needed is that all of those belonging to the recovered category in the $t^{-1}(R)$ are dead, since alive and immune is not included in the time series data for P \& I 1918. I would not advise my assistant to help prepare a report for the public health agency with this model since the assumptions are too extreme and unreasonable. A better model that has an explicit equation and takes into account those recovered that are alive will do a much better job modelling the P \& I 1918 data than the one achieved in this question.
+
+\end{proof}
+}
+  
+  
   \item \basicSIRanalQbiv
+{\color{blue}
+\begin{proof}[Solution]
+	
+	Yes it is possible to find an exact analytical expression for t(S). The same steps from part (i) can be taken, except R is solved for as a function of S (separable equation) when combining $dS/dt$ and $dR/dt$, and the $dS/dt$ equation is solved for I to achieve a relation between $dS/dt$ and I to substitute into the$ S+I+R=1$ equation. Carrying on as in part (i) R and I can now be replaced in $S+I+R=1$ and the equation can be solved as a separable equation, giving t as a function of S or t(S).
+
+\end{proof}
+}  
+  
   \end{enumerate}
 \item \basicSIRanalQc
 
 {\color{blue}
 \begin{proof}[Answers]
-{\color{magenta}\dots beautifully clear and concise text to be inserted here\dots}
-Since no numerical analysis or graphics were requested, there is no need to use \Rlogo to answer these questions.  Note, incidentally, that the \verb|\Rlogo| command that produces \Rlogo simply includes the image file \texttt{images/Rlogo.pdf} and scales it appropriately for text within a paragraph.  If we really loved that logo and wanted to display as we would a figure, we easily could\dots
+
+There are several things to be considered at the beginning of this proof. First examine~\eqref{E:SIR} where it can be plainly seen that if $I=0$ then the system is at an equilibrium. Thus we will only consider cases where $I(0)\neq 0$.
+\begin{center}
+\begin{figure}[h]
+\includegraphics[width=5cm]{images/4MB3_A1_2c.png}
+\end{figure}
+\end{center}
+Consider the relative area, as shown here. First we will examine the green area, written as ${\mathcal O}=\{(-\infty,\frac{1}{{\mathcal R}_o}) \times \mathbb{R}\}\cap \Delta$, where $\Delta=\{(S,I):S\ge0,\, I\ge0,\, S+I\le1\}$ as shown in the image, and ${\mathcal O}$ is an open subset relative to the area of interest. We will also use the closed set ${\mathcal C}=\{[0,\frac{1}{{\mathcal R}_o}-\delta]\times{0}\}, \delta > 0$. As stated previously, any state with $I=0$ will remain in that set, making $\mathcal C$ an invariant set. Knowing this we can now invoke \textit{Lyapunov's Direct Method of Closed Invariant Sets} using the Lyapunov function, $\mathcal{L} = I$. It is easily shown that this is a strict Lyapunov function on $\mathcal{O} \setminus \mathcal{C}$ and $\mathcal{C}$ is asymptotically stable.
+\begin{equation}
+{\displaystyle {\begin{aligned}
+\mathcal{L}&=I \\
+\mathcal{L}(X)&=0 \qquad \forall \quad X \in \mathcal{C} \\
+\mathcal{L}(X) &> 0 \qquad \forall \quad X \in \mathcal{O} \setminus \mathcal{C} \\
+\frac{d\mathcal{L}(X)}{dt} &= \frac{dI}{dt}=I(\mathcal{R}_0 \cdot S-1) \\
+\frac{d\mathcal{L}(X)}{dt} &= 0 \qquad \forall \quad X \in \mathcal{C} \\
+\frac{d\mathcal{L}(X)}{dt} &< 0 \qquad \forall \quad X \in \mathcal{O} \setminus \mathcal{C}
+\end{aligned}}}
+\end{equation}
+We now conclude that the set of $I=0$ is asymptotically stable for any initial conditions in $\mathcal{O}$.\break
+Next we need to show that any trajectories with initial conditions in $\Delta \setminus \mathcal{O}$, in green in the diagram, will eventually land in $\mathcal{O}$ at which point we use the asymptotic stability of $\mathcal{C}$ as we showed above. 
+For any point, $P \in \Delta \setminus \mathcal{O}, P=\{(S,I)|S \geq \frac{1}{\mathcal{R}_0}, I > 0, S+I \leq 1\}$. We can see from ~\eqref{E:SIR} that $\frac{dS}{dt} < 0$ for all $P$. This means that $S$ will decrease and continue to decrease until 
+
 \end{proof}
 }
-\begin{center}
-\scalebox{3}{
-\includegraphics{images/Rlogo.pdf}
-}
-\end{center}
 
 \item \basicSIRanalQd
 
