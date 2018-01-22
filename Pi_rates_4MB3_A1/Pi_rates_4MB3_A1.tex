@@ -28,7 +28,7 @@
 \medskip
 \underline{\emph{Group Name}}: \texttt{{\color{blue} $\pi$rates}}\\
 \medskip
-\underline{\emph{Group Members}}: {\color{blue}Adeyemi Fakorede, Megan Hartwell,Ahmad Mahmood, Bradley Montgomery, Courtney Mulholland}
+\underline{\emph{Group Members}}: {\color{blue} Megan Hartwell,Ahmad Mahmood, Bradley Montgomery, Courtney Mulholland}
 \end{center}
 
 \section{Analysis of the SI model}
@@ -91,7 +91,14 @@
     
     {\color{blue}
       \begin{proof}
-        {\color{magenta}\dots beautifully clear and concise text to be inserted here\dots}
+        This proof begins with noticing several things about $\frac{dI}{dt}$. Firstly, $\frac{dI}{dt}$ is strictly positive on the open interval, $(0,N)$. It is also a continuous, smooth, symmetric parabola achieving it's maximum at $I=\frac{N}{2}$. If we are then given values for $I(0)=I_0 > 0$ and $\epsilon$, we can  create a closed interval that contains $I(t)$, such that $I \in [I_0,N-\epsilon]$. Now since $\frac{dI}{dt}$ is positive for all $I$ in this interval (and the entire biologically relevant interval), we know that $I(t)$ will increase from $I_0$ and continue to increase throughout this region since the slope is still positive. We also know the slope is bounded from both above and below since $\frac{dI}{dt}$ is continuous on a closed interval, and both bounds are positive. If we take the lower bound, call this $m$, then we know that $\frac{dI}{dt} \geq m \forall I \in [I_0,N-\epsilon]$. If we assume that the slowest speed of increase $m$ is maintained, then we can calculate the maximum time it will take for any trajectory to reach $N-\epsilon$.
+        \begin{equation}
+        {\displaystyle {\begin{aligned}
+        m&=\min(\beta I(N-I),\beta \epsilon(N-\epsilon))\\
+        t_f&=\frac{N-\epsilon-I_0}{m}
+        \end{aligned}}}
+        \end{equation}
+        Thus for any initial condition $I_0$ and $\epsilon$ we can calculate this $t_f$ and we know that  $I(t)$ will reach $N-\epsilon$ in time less than $t_f$.
       \end{proof}
     }
     
@@ -120,6 +127,7 @@
 	I=(I_0+S_0)-\frac{1}{\mathcal{R}_0}+\frac{1}{\mathcal{R}_0}\log\left(\frac{1}{\mathcal{R}_0S_0}\right)
 	\end{gather}
 \end{proof}
+A health official might be interested to know the peak prevalence of an infection so they would be aware of the maximum number of patients they need to be able to treat at one time. This would also be a good indication of the population recovering, since in this model once the maximum of $I$ is reached it will only decrease meaning in the future there will be fewer patients to treat as they move into recovered/removed class.
 }
 
 \item \basicSIRanalQb
@@ -222,9 +230,9 @@ L(X) &> 0 \qquad \forall \quad X \in \mathcal{O} \setminus \mathcal{C} \\
 \end{equation}
 We now conclude that the set of $I=0$ is asymptotically stable for any initial conditions in $\mathcal{O}$.\break
 Next we need to show that any trajectories with initial conditions in $\Delta \setminus \mathcal{O}$, in green in the diagram, will eventually land in $\mathcal{O}$ at which point we use the asymptotic stability of $\mathcal{C}$ as we showed above. 
-For any point, $P \in \Delta \setminus \mathcal{O}, P=\{(S,I)|S \geq \frac{1}{\mathcal{R}_0}, I > 0, S+I \leq 1\}$. We can see from ~\eqref{E:SIR} that $\frac{dS}{dt} < 0$ for all $P$. This means that $S$ will decrease and continue to decrease until 
-
+For any point, $P \in \Delta \setminus \mathcal{O}, P=\{(S,I)|S \geq \frac{1}{\mathcal{R}_0}, I > 0, S+I \leq 1\}$. We can see from ~\eqref{E:SIR} that $\frac{dS}{dt} < 0$ for all $P$. This means that $S$ will decrease and continue to decrease until $P \in \mathcal{O}$, as $I$ will increase while $P \in \Delta \setminus \mathcal{O}$ preventing $P$ from approaching an equilibrium before $P \in \mathcal{O}$. By the asymptotic stability of $\mathcal{C}$ within $\mathcal{O}$, $P$ will proceed to $I=0$.
 \end{proof}
+This makes biological sense as any endemic will end eventually, at which point there will be no infectious individuals, so $I=0$, and $I=0$ is the only point at which an epidemic will end, as patients will eventually move to the removed class. 
 }
 
 
