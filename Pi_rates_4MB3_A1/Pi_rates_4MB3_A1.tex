@@ -88,7 +88,21 @@
 
 {\color{blue}
 \begin{proof}[Solution]
-{\color{magenta}\dots beautifully clear and concise text to be inserted here\dots}
+	The peak prevalence corresponds to the maximum value of I, which is where the determinant of I is equal to zero. 
+	
+	\begin{equation}
+	\frac{dI}{dt}=\mathcal{R}_0 SI-I=0 \implies I=0 \quad or \quad  S=\frac{1}{\mathcal{R}_0}
+	\end{equation}
+	
+	This can then be subbed into the equation for the solution curves in the phase plane as derived in class to find the value of I when $S=1/\mathcal{R}_0$
+	
+	\begin{equation}
+	{\displaystyle {\begin{aligned}
+	I+S-(I_0+S_0)=\frac{1}{\mathcal{R}_0}\log\left(\frac{S}{S_0}\right) \\
+	I=(I_0+S_0)-\frac{1}{\mathcal{R}_0}+\frac{1}{\mathcal{R}_0}\log\left(\frac{1/\mathcal{R}_0}{S_0}\right) \\
+	I=(I_0+S_0)-\frac{1}{\mathcal{R}_0}+\frac{1}{\mathcal{R}_0}\log\left(\frac{1}{\mathcal{R}_0S_0}\right)
+	\end{aligned}}}
+	\end{equation}
 \end{proof}
 }
 
@@ -109,7 +123,7 @@
 	S_0e^{-\mathcal{R}_0R}+I+R = 1 \implies R=1-I-S_0e^{-\mathcal{R}_0R}
 	\end{equation}
 	
-	From \verb|equation \eqref{E:S}|...
+	From equation~\eqref{E:SIR}
 	
 	\begin{equation}
 	\frac{dR}{dt}=1-R-S_0e^{-\mathcal{R}_0R}
@@ -190,17 +204,37 @@ L(X) &> 0 \qquad \forall \quad X \in \mathcal{O} \setminus \mathcal{C} \\
 \end{aligned}}}
 \end{equation}
 We now conclude that the set of $I=0$ is asymptotically stable for any initial conditions in $\mathcal{O}$.\break
+
 Next we need to show that any trajectories with initial conditions in $\Delta \setminus \mathcal{O}$, in green in the diagram, will eventually land in $\mathcal{O}$ at which point we use the asymptotic stability of $\mathcal{C}$ as we showed above. \break
 For any point, $P \in \Delta \setminus \mathcal{O}, P=\{(S,I)|S \geq \frac{1}{\mathcal{R}_0}, I > 0, S+I \leq 1\}$. We can see from ~\eqref{E:SIR} that $\frac{dS}{dt} < 0$ and $\frac{dI}{dt} >0$ for all $P$. This means that $S$ will decrease and continue to decrease until $P \in \mathcal{O}$, as $I$ will increase while $P \in \Delta \setminus \mathcal{O}$ preventing $P$ from approaching an equilibrium before $P \in \mathcal{O}$. By the asymptotic stability of $\mathcal{C}$ within $\mathcal{O}$, $P$ will proceed to $I=0$.
 \end{proof}
 This makes biological sense as any endemic will end eventually, at which point there will be no infectious individuals, so $I=0$, and $I=0$ is the only point at which an epidemic will end, as patients will eventually move to the removed class. 
 
 }
+
+
 \item \basicSIRanalQd
 
 {\color{blue}
 \begin{proof}[Solution]
 {\color{magenta}\dots beautifully clear and concise text to be inserted here\dots}
+	
+	\begin{equation}
+	\frac{dS}{dt}=-\mathcal{R}_0 SI=0, \quad \frac{dI}{dt}=\mathcal{R}_0 SI-I=0, \quad \frac{dR}{dt}=I=0
+	\end{equation}
+	
+	This yields a continuum of equilibrium defined as $(S,I)=(S_0,0) \quad \forall S_0 \in [0,1]$.
+	
+	As can be seen by the nullclines and phase portrait developed in lecture, the equilibrium points with $S<1/\mathcal{R}_0$ are asymptotically stable and the equilibrium points with  $S>1/\mathcal{R}_0$ are unstable.
+
+\begin{figure}[h]
+\begin{center}
+		\includegraphics[width=5cm]{images/4MB3_A1_2d_nc.png}
+		\includegraphics[width=5cm]{images/4MB3_A1_2d_pp.png}
+\end{center}
+\end{figure}
+	
+	 
 \end{proof}
 }
 
