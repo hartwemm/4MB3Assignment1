@@ -60,12 +60,30 @@
     
     {\color{blue}
       \begin{proof}
-        {\color{magenta}\dots beautifully clear and concise text to be inserted here\dots}
-        Since an exactly solution is requested, there will no doubt be an equation of the form
-        \begin{equation}
-          I(t) = \cdots \text{blah blah blah} \cdots ,
-        \end{equation}
-        which will be extremely enlightening.
+	       
+	       The exact solution of the model can be found by using Bernoulli's Differential Equation
+	       \begin{equation}
+	       {\displaystyle {\begin{aligned}
+	       \frac{dy}{dx}+p(x)y=q(x)y^n
+	       \end{aligned}}}
+	       \end{equation}
+	       
+	       If we let $v=y^{1-n}$ $(n \neq 1)$ then 
+	       
+	        \begin{gather}
+	       \frac{dv}{dx}=(1-n)y^{-n}\frac{dy}{dx} \\
+	       y^{-n}\frac{dy}{dx}=q(x)-p(x)y^{1-n}=q(x)-vp(x) \\
+	       \frac{dv}{dx}=(1-n)[q(x)-vp(x)] \\
+	       \frac{dv}{dx}+vP(x)=Q(x); \quad P(x)=(1-n)p(x), \quad Q(x)= (1-n)q(x) \\
+	      v=\frac{\int e^{\int P(x)dx}Q(x)dx+C}{e^{\int P(x)dx}}=\frac{(1-n)\int e^{(1-n)\int p(x)dx}q(x)dx+C}{e^{(1-n)\int p(x)dx}} \\
+	      y=\left( \frac{(1-n)\int e^{(1-n)\int p(x)dx}q(x)dx_C}{e^{(1-n)\int p(x)dx}}\right)^{\frac{1}{1-n}} \\
+	       Take \quad n=2: \quad y=\left( \frac{-\int e^{(-\int p(x)dx}q(x)dx_C}{e^{-\int p(x)dx}}\right)^{-1} \\
+	       y=\frac{e^{-\int p(x)dx}}{-\int e^{(-\int p(x)dx}q(x)dx_C} \\
+	       p(x)=-\beta N, \quad q(x)=-\beta \implies I(t)=\frac{e^{-\int -\beta N dt}}{-\int e^{-\int -\beta N dt}(-\beta)dt +C} \\
+	       I(t)=\frac{e^{\int \beta N dt}}{\beta \int e^{\int \beta N dt}dt +C} = \frac{e^{ \beta N t}}{\beta \int e^{ \beta N t}dt +C}=\frac{e^{ \beta N t}}{(1/N) e^{ \beta N t} +C}=\frac{I_0 e^{ \beta N t}}{1+(I_0/N) (e^{ \beta N t} -1)} \\
+	       \lim_{t\to\infty} I(t) \approx \frac{I_0 e^{ \beta N t}}{1+(I_0/N) e^{ \beta N t}} \approx \frac{I_0 e^{ \beta N t}}{(I_0/N) e^{ \beta N t}} \approx \frac{N I_0 e^{ \beta N t}}{I_0 e^{ \beta N t}} \approx N
+	       \end{gather}
+       
       \end{proof}
     }
     
@@ -96,13 +114,11 @@
 	
 	This can then be subbed into the equation for the solution curves in the phase plane as derived in class to find the value of I when $S=1/\mathcal{R}_0$
 	
-	\begin{equation}
-	{\displaystyle {\begin{aligned}
+	\begin{gather}
 	I+S-(I_0+S_0)=\frac{1}{\mathcal{R}_0}\log\left(\frac{S}{S_0}\right) \\
 	I=(I_0+S_0)-\frac{1}{\mathcal{R}_0}+\frac{1}{\mathcal{R}_0}\log\left(\frac{1/\mathcal{R}_0}{S_0}\right) \\
 	I=(I_0+S_0)-\frac{1}{\mathcal{R}_0}+\frac{1}{\mathcal{R}_0}\log\left(\frac{1}{\mathcal{R}_0S_0}\right)
-	\end{aligned}}}
-	\end{equation}
+	\end{gather}
 \end{proof}
 }
 
